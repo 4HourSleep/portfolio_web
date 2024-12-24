@@ -33,19 +33,46 @@ body {
 
 /* ===== Base Body Styles ===== */
 body {
-    display: grid;
-    grid-template-columns: 190px 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas: 
-        "sidebar main"
-        "sidebar navbar";
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background: transparent;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    font-family: 'Press Start 2P', monospace;
-    cursor: default;
+    margin: 0;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 190px;
+    padding-bottom: 140px;
+    min-height: calc(100vh - 200px);
+}
+
+.site-footer {
+    padding: 20px;
+    text-align: center;
+    width: calc(100% - 190px);
+    margin-left: 190px;
+    position: fixed;
+    bottom: 60px;
+    z-index: 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+    .site-footer {
+        width: 100%;
+        margin-left: 0;
+        bottom: 60px;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding-bottom: 140px;
+    }
+}
+
+.page {
+    margin-bottom: 60px;
 }
 
 /* Optional: Add a slight overlay to improve content visibility */
@@ -1870,6 +1897,23 @@ img[src*="rskull.gif"]:not(.navbar-icon) {
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+}
+
+.copyright-text {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+    padding: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 或者直接针对 footer 中的所有文本 */
+.site-footer p {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+    padding: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 
