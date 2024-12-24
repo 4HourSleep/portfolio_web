@@ -1,0 +1,1876 @@
+/* Custom Font Declarations */
+@font-face {
+    font-family: "Dharma Punk";
+    src: url("./fonts/DPunk/Dharma-Punk.ttf.eot");
+    src: local("Dharma Punk"),
+         url("./fonts/DPunk/Dharma-Punk.ttf.woff") format("woff"),
+         url("./fonts/DPunk/Dharma-Punk.ttf.svg") format("svg"),
+         url("./fonts/DPunk/Dharma-Punk.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+                                    
+@font-face {
+    font-family: "Very Punk"; 
+    src: url("./fonts/Verypunk/VeryVeryPunkFont-ZpZ0K.ttf.eot");
+    src: local("Very Punk"),
+         url("./fonts/Verypunk/VeryVeryPunkFont-ZpZ0K.woff") format("woff"),
+         url("./fonts/Verypunk/VeryVeryPunkFont-ZpZ0K.ttf.svg") format("svg"),
+         url("./fonts/Verypunk/VeryVeryPunkFont-ZpZ0K.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Typography */
+h2 {
+    font-family: 'Very Damaged', 'Very Damaged UL', sans-serif;
+}
+
+/* Custom cursor and trail effect */
+body {
+    cursor: default;
+}
+
+/* ===== Base Body Styles ===== */
+body {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "sidebar main"
+        "sidebar navbar";
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: transparent;
+    min-height: 100vh;
+    font-family: 'Press Start 2P', monospace;
+    cursor: default;
+}
+
+/* Optional: Add a slight overlay to improve content visibility */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/bg.gif') repeat;
+    background-size: 300px 300px;
+    z-index: -1;
+}
+
+/* Ensure content stays above the overlay */
+.sidebar, .navbar, .windows-container, .credits-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Keep your existing transparency and blur effects */
+.retro-window {
+    background: rgba(192, 192, 192, 0.95);
+}
+
+.sidebar {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.navbar {
+    background: rgba(192, 192, 192, 0.95);
+}
+
+
+/* ===== Navigation Bar Section ===== */
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #c0c0c0;
+    display: flex;
+    align-items: center;
+    padding: 0 2px;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #424242;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #424242;
+    z-index: 1000;
+    box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #0a0a0a;
+
+    background: 
+        url('img/heart.gif'),
+        #c0c0c0;
+    background-size: 
+        30px auto,  /* stars.gif size */
+        cover;      
+    background-position:      
+        center;      
+    background-repeat: 
+        repeat,     
+}
+
+/* Responsive navbar adjustment */
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        left: 0;
+    }
+}
+
+/* ===== Start Button Styles ===== */
+.start-button {
+    height: 36px;
+    padding: 4px 8px 4px 38px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: #000;
+    background: #c0c0c0;
+    border: 2px solid #dfdfdf;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Start button hover effects */
+.start-button::before {
+    content: 'START';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.start-button::after {
+    content: "DON'T PRESS";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #c0c0c0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.start-button:hover::before {
+    transform: translateY(-100%);
+}
+
+.start-button:hover::after {
+    transform: translateY(0);
+}
+
+.start-button.pressed::before {
+    transform: translateY(-100%);
+}
+
+.start-button.pressed::after {
+    transform: translateY(0);
+}
+
+/* Start button icon */
+.start-button::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-image: url('img/windows95.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Start button active state */
+.start-button:active {
+    border: 2px solid #808080;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+    padding: 5px 7px 3px 39px;
+}
+
+/* ===== Navbar Links Section ===== */
+.navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.navbar li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-icon {
+    height: 20px;
+    width: auto;
+    margin-right: 5px;
+}
+
+/* Navbar link styles */
+.navbar a {
+    height: 36px;
+    padding: 4px 8px 4px 38px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: #000;
+    background: #c0c0c0;
+    border: 2px solid #dfdfdf;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Navbar link icons */
+.navbar a::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-image: url('img/folder.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Navbar link hover and active states */
+.navbar a:hover {
+    background: #000082;
+    color: #ffffff;
+    border: 2px solid #000082;
+}
+
+.navbar a:active {
+    border: 2px solid #808080;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+    padding: 5px 7px 3px 39px;
+}
+
+/* ===== Clock/Status Area ===== */
+.navbar::after {
+    content: '';
+    display: none;
+}
+
+.navbar-image-container {
+    margin-left: auto;
+    padding: 4px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-normal,
+.navbar-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-hover {
+    opacity: 0;
+}
+
+.navbar-image-container:hover .navbar-normal {
+    opacity: 0;
+}
+
+.navbar-image-container:hover .navbar-hover {
+    opacity: 1;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 190px;
+    height: 100vh;
+    background: 
+        url('img/stars.gif'),
+        rgba(0, 0, 0, 0.8);
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 4px solid #590000;
+    z-index: 100;
+}
+
+/* Ensure buttons are above the gif */
+.sidebar-menu {
+    position: relative;
+    z-index: 2;
+    list-style: none;
+    padding: 0;
+    margin-top: 60px;
+}
+
+.sidebar-menu li {
+    margin-bottom: 20px;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Very Punk', cursive;
+    font-size: 30px;
+    text-transform: uppercase;
+    background: #A52A2A;
+    border: 4px solid #B22222;
+    box-shadow: 4px 4px 0 #590000;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-menu a:hover {
+    background: #FF0000;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #590000;
+    text-shadow: 
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #ff0000;
+    letter-spacing: 3px;
+}
+
+.sidebar-menu a::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 0, 0, 0.1),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.sidebar-menu a:hover::before {
+    transform: translateX(100%);
+}
+
+
+/* Responsive adjustment for sidebar */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+/* Start Button Loading Screen */
+#start-loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-loading-text {
+    font-family: "Very Punk", sans-serif;
+    font-size: 80px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    text-align: center;
+    animation: textColorChange 2s infinite;
+}
+
+/* Color change animation */
+@keyframes textColorChange {
+    0% { 
+        color: #ff0000;
+        text-shadow: 0 0 10px #ff0000;
+    }
+    25% { 
+        color: #00ff00;
+        text-shadow: 0 0 10px #00ff00;
+    }
+    50% { 
+        color: #0000ff;
+        text-shadow: 0 0 10px #0000ff;
+    }
+    75% { 
+        color: #ff00ff;
+        text-shadow: 0 0 10px #ff00ff;
+    }
+    100% { 
+        color: #ff0000;
+        text-shadow: 0 0 10px #ff0000;
+    }
+}
+
+#start-progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 800px;
+}
+
+#start-loading-gif {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+}
+
+#start-progress-bar {
+    width: 60%;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    background: transparent;
+}
+
+#start-progress-bar-gif {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.retro-window {
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    position: fixed;
+    min-width: 280px;
+    min-height: 180px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+}
+
+.window-header {
+    background: #000080;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.window-title {
+    color: #fff;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 12px;
+    padding-left: 3px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-button {
+    width: 16px;
+    height: 14px;
+    background: #c0c0c0;
+    border: 1px solid #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.window-content {
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    font-family: 'MS Sans Serif', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.window-content h2,
+.window-content p {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Navigation buttons */
+.goto-btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px 15px;
+    background: #000080;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 14px;
+    border: 2px solid #ffffff;
+    border-right-color: #000042;
+    border-bottom-color: #000042;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 
+        inset -2px -2px #000042,
+        2px 2px 0 #4169E1;
+    text-shadow: 2px 2px #000042;
+    transition: all 0.3s ease;
+}
+
+.goto-btn:hover {
+    background-image: url('img/hackerbar.gif');
+    background-size: cover;
+    background-position: center;
+    color: #00ff00;
+    border-color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    box-shadow: 
+        inset -1px -1px #000042,
+        0 0 10px #00ff00;
+}
+
+.goto-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 
+        inset 2px 2px #000042,
+        0 0 5px #00ff00;
+}
+
+/* Active window */
+.retro-window.active {
+    z-index: 1000;
+}
+
+/* Initial positions */
+.retro-window:nth-child(1) {
+    top: 20vh;
+    left: 25vw;
+    z-index: 3;
+}
+
+.retro-window:nth-child(2) {
+    top: 25vh;
+    left: 45vw;
+    z-index: 2;
+}
+
+.retro-window:nth-child(3) {
+    top: 15vh;
+    right: 25vw;
+    z-index: 1;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+}
+
+img {
+    max-width: 350px;
+    height: auto;
+}
+
+/* Credits Styles */
+.credits-container {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.credits-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.credits-button:hover {
+    transform: scale(1.1);
+}
+
+.credits-button:active {
+    transform: scale(0.95);
+}
+
+.credits-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.credits-button[data-playing="false"] .credits-icon {
+    filter: grayscale(100%);
+}
+
+.credits-button[data-playing="true"] .credits-icon {
+    filter: none;
+    animation: pulse 2s infinite;
+}
+
+.credits-label {
+    color: #ffffff;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    text-shadow: 
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.credits-button[data-playing="true"] .credits-label {
+    color: #00ff00;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 15px #00ff00,
+            0 0 20px #00ff00,
+            0 0 25px #00ff00;
+    }
+    to {
+        text-shadow: 
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #00ff00,
+            0 0 40px #00ff00,
+            0 0 50px #00ff00;
+    }
+}
+
+.credits-button:hover .credits-icon {
+    filter: brightness(1.2);
+}
+
+.credits-button:hover .credits-label {
+    transform: scale(1.1);
+}
+
+.credits-text {
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 2px solid #000080;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.about-text li {
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.about-text li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #000080;
+}
+
+/* Gallery Page Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.gallery-item {
+    background: #fff;
+    padding: 10px;
+    border: 2px solid #808080;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.gallery-item h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.gallery-item p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Contact Page Styles */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    padding: 40px;
+    width: 100%;
+}
+
+.contact-info {
+    padding: 20px;
+    background: #f0f0f0;
+    border: 2px solid #808080;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: block;
+    margin: 10px 0;
+    color: #000080;
+    text-decoration: none;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid #808080;
+    border-radius: 10px;
+    font-family: inherit;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #000080;
+    outline: none;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: auto;
+    min-width: 200px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #000080;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: inset -2px -2px #000042, 2px 2px 0 #4169E1;
+    text-shadow: 2px 2px #000042;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-image: url('img/hackerbar.gif');
+    background-size: cover;
+    background-position: center;
+    color: #00ff00;
+    border-color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    box-shadow: inset -1px -1px #000042, 0 0 10px #00ff00;
+}
+
+.contact-form button:active {
+    transform: translate(2px, 2px);
+    box-shadow: inset 2px 2px #000042, 0 0 5px #00ff00;
+}
+
+/* Updated Social Links Styles */
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid #808080;
+    color: #000080;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: rgba(0, 0, 128, 0.1);
+    transform: translateX(5px);
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Glitch Text Container */
+.glitch-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 190px);
+    text-align: center;
+    white-space: nowrap;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.glitch {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: scrollText 15s linear infinite;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(255, 255, 255, 0.8),
+        0 0 40px #00fffc,
+        0 0 70px #00fffc,
+        0 0 80px #00fffc,
+        0 0 100px #00fffc,
+        0 0 150px #00fffc;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Reset welcome page background */
+#welcome {
+    background: transparent;
+}
+
+/* Content Window Styles */
+.content-window {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 20px auto;
+    color: #ffffff;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    overflow: visible;
+}
+
+/* Section Title Styles */
+.section-title {
+    font-family: 'Anarchaos', sans-serif;
+    font-size: 100px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 3px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.384);
+    width: 100%;
+}
+
+/* Gallery Grid Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.gallery-item {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.gallery-item h3 {
+    color: #ffffff;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.gallery-item p {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* Page Styles */
+.page {
+    position: relative;
+    left: 200px;
+    width: calc(1920px - 190px);
+    min-height: 100vh;
+    padding: 120px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Ensure content is above background */
+.main-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 100vh;
+}
+
+/* Main Header Styles */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 190px;
+    width: calc(100% - 190px);
+    text-align: center;
+    z-index: 90;
+    padding: 20px 0;
+    background: none;
+    pointer-events: none;
+}
+
+.main-header h1 {
+    font-family: "Anarchaos", sans-serif;
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    animation: textColorChange 2s infinite;
+    text-shadow: 0 0 15px currentColor;
+    pointer-events: none;
+    width: 100%;
+}
+
+.retro-window {
+    position: absolute;
+    min-width: 280px;
+    min-height: 180px;
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    margin-top: 150px;
+}
+
+.retro-window.active {
+    z-index: 1000;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.window-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.window-header {
+    background: #000080;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+/* Social Links Styles */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.social-link {
+    background: transparent;
+    border: none;
+    padding: 0;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.social-link img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* Game Window Styles */
+.game-preview {
+    text-align: center;
+    padding: 10px;
+}
+
+.game-preview img {
+    width: 300px;  
+    height: 200px; 
+    object-fit: cover; 
+    margin-bottom: 15px;
+    border: 2px solid #000080;
+}
+
+/* 调整窗口大小以适应新的图片尺寸 */
+.retro-window.game-window {
+    position: fixed;
+    top: 40px;
+    left: 200px;
+    min-width: 200px;
+    min-height: 260px;
+    z-index: 2;
+}
+
+/* 下载按钮样式 */
+.game-preview .goto-btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px 15px;
+    background: #000080;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 14px;
+    border: 2px solid #ffffff;
+    border-right-color: #000042;
+    border-bottom-color: #000042;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 
+        inset -2px -2px #000042,
+        2px 2px 0 #4169E1;
+    text-shadow: 2px 2px #000042;
+    transition: all 0.3s ease;
+}
+
+.game-preview .goto-btn:hover {
+    background-image: url('img/hackerbar.gif');
+    background-size: cover;
+    background-position: center;
+    color: #00ff00;
+    border-color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    box-shadow: 
+        inset -1px -1px #000042,
+        0 0 10px #00ff00;
+}
+
+.game-preview .goto-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 
+        inset 2px 2px #000042,
+        0 0 5px #00ff00;
+}
+
+/* Add transition effect */
+#start-loading-screen.show {
+    display: flex;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/blood.gif');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 9999;
+}
+
+#loading-screen p {
+    font-family: "Very Punk", sans-serif;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: textColorChange 2s infinite;
+}
+
+#progress-container {
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#loading-gif {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    filter: brightness(1.2) contrast(1.2);
+}
+
+#progress-bar {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#progress-bar-gif {
+    width: 0%;
+    height: 100%;
+    object-fit: contain;
+    transition: width 0.3s ease;
+    max-width: 100%;
+}
+
+/* Color change animation */
+@keyframes textColorChange {
+    0% { 
+        color: #ff0000;
+        text-shadow: 0 0 10px #ff0000;
+    }
+    25% { 
+        color: #00ff00;
+        text-shadow: 0 0 10px #00ff00;
+    }
+    50% { 
+        color: #0000ff;
+        text-shadow: 0 0 10px #0000ff;
+    }
+    75% { 
+        color: #ff00ff;
+        text-shadow: 0 0 10px #ff00ff;
+    }
+    100% { 
+        color: #ff0000;
+        text-shadow: 0 0 10px #ff0000;
+    }
+}
+
+/* Image Window Styles */
+.image-window {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    min-width: 220px;
+    min-height: 100px;
+    z-index: 999;
+}
+
+.image-window .window-content {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-window .navbar-image-container {
+    width: 200px;
+    height: 200px;
+    margin: 0;
+}
+
+.navbar-icon {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.clock-display {
+    margin-right: 15px;
+    color: #000;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+/* 右侧容器样式 */
+.navbar-right {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    background: #c0c0c0;
+    padding: 2px 8px;
+    border: 1px solid #ffffff;
+    border-bottom: 1px solid #424242;
+    border-right: 1px solid #424242;
+    transition: all 0.3s ease;
+}
+
+
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 删除任何可能影响布局的冲突样式 */
+img[src*="clock.gif"],
+img[src*="rskull.gif"]:not(.navbar-icon) {
+    display: none;
+}
+
+/* 添加时间显示的过渡效果 */
+.clock-display {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* 头骨图标样式 */
+.navbar-icon {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* 添加头骨悬停效果 */
+.navbar-icon:hover {
+    transform: scale(1.1);
+}
+
+/* 添加头点击效果 */
+.navbar-icon:active {
+    transform: scale(0.95);
+}
+
+/* Keep welcome windows fixed */
+#welcome {
+    position: fixed;
+    top: 0;
+    left: 190px;
+    width: calc(100% - 190px);
+    height: 100vh;
+    z-index: 1;
+    padding-top: 150px;
+}
+
+/* Text color adjustments */
+.page {
+    color: #ffffff;
+}
+
+/* Keep welcome title color */
+.main-header h1 {
+    color: inherit;
+}
+
+/* Update window positioning */
+.retro-window {
+    position: absolute;
+    transform: none;
+    min-width: 280px;
+    min-height: 180px;
+    margin: 20px;
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+/* Remove fixed positioning for welcome section */
+#welcome {
+    position: relative;
+    left: 190px;
+    width: calc(100% - 190px);
+    min-height: 100vh;
+    z-index: 1;
+}
+
+/* Ensure content flows normally */
+.main-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* 头骨图标样式 */
+.navbar-icon {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    margin-left: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Game Page Styles */
+#game .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+#game .gallery-item {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+#game .gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+#game .gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #000080;
+    margin-bottom: 10px;
+}
+
+#game .gallery-item h3 {
+    color: #ffffff;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+#game .gallery-item p {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* Book Gallery Styles */
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    perspective: 1500px;
+}
+
+.book {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    transition: transform 0.5s;
+}
+
+.paper-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transition: transform 0.5s;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffffff;
+}
+
+.paper.flipped {
+    transform: rotateY(-180deg);
+}
+
+.paper-front, .paper-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.paper-back {
+    transform: rotateY(180deg);
+}
+
+.gallery-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border: 2px solid #000080;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+#prev-btn {
+    left: -50px;
+}
+
+#next-btn {
+    right: -50px;
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.2);
+    text-shadow: 0 0 20px rgba(0, 0, 255, 0.8);
+}
+
+/* Book Content Styles */
+.about-content, .contact-content {
+    padding: 20px;
+    color: #ffffff;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px 0;
+    border: 3px solid #000080;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.skills-list li {
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.skills-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #000080;
+}
+
+.contact-form {
+    width: 80%;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #000080;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: #000080;
+    transform: translateY(-3px);
+}
+
+/* Ensure consistent book sizing */
+.about-book, .contact-book {
+    width: 800px;
+    height: 500px;
+}
+
+/* Initial window positions */
+.retro-window {
+    position: fixed;
+    min-width: 280px;
+    min-height: 180px;
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+}
+
+/* Contact window - Adjusted position further right and down */
+.retro-window.contact-window {
+    top: 250px;
+    left: 560px;
+    z-index: 100;
+}
+
+/* Keep other window positions */
+.retro-window.game-window {
+    top: 150px;
+    left: 200px;
+    min-width: 200px;
+    min-height: 260px;
+}
+
+.retro-window.gallery-window {
+    top: 150px;
+    right: 180px; 
+    z-index: 100;
+}
+
+.retro-window.project-window {
+    top: 150px;
+    right: 50px;
+    z-index: 100;
+}
+
+/* Update windows container */
+#windows-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    z-index: 1000;
+}
+
+/* Add responsive breakpoints */
+@media screen and (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "main"
+            "navbar";
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .page {
+        left: 0;
+        width: 100%;
+    }
+
+    .main-header {
+        left: 0;
+        width: 100%;
+    }
+}
+
+/* Project Window Specific Styles */
+.project-window {
+    min-width: 350px;
+    min-height: 320px;
+    width: auto;
+    height: auto;
+    resize: both;
+    overflow: hidden;
+}
+
+.project-window .window-content {
+    padding: 15px;
+    height: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-window .project-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.project-window .project-preview img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.project-window .goto-btn {
+    margin-top: auto;
+    width: 80%;
+}
+
+/* Clock styles */
+.clock-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+}
+
+.navbar-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.clock-display {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #000;
+    text-shadow: 1px 1px #fff;
+    white-space: nowrap;
+}
+
+/* Mouse Trail Styles */
+.mouse-trail {
+    position: fixed;
+    width: 80px;
+    height:60px;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.mouse-trail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .content-window {
+        width: 98%;
+        padding: 20px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+
+

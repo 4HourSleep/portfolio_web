@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta Configuration -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <source src="background.ogg" type="audio/ogg">
+        <!-- SEO Configuration -->
+        <meta name="description" content="A retro emo punk personal website showcasing art, music and personality">
+        <meta name="keywords" content="retro, emo, punk, art, music, personal website">
+        <title>MY Emo Punk Page | Personal Website</title>
+        
+        <!-- External Resources -->
+        <!-- Font Imports -->
+        <link href="https://fonts.cdnfonts.com/css/anarchaos?styles=40799" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/very-damaged?styles=3044" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/extreme-pain" rel="stylesheet">
+        
+        <!-- Core Stylesheets -->
+        <link rel="stylesheet" href="styles.css">
+        <script src="scripts.js"></script>
+        <script src="mouse-trail.js"></script>
+    </head>   
+
+<body>
+    <!-- Loading Screens -->
+    <!-- Initial Loading Animation -->
+    <div id="loading-screen">
+        <p>LOADING...</p>
+        <div id="progress-container">
+            <img src="img/loading.gif" alt="Loading animation" id="loading-gif">
+            <div id="progress-bar">
+                <img src="img/bar.gif" alt="Progress bar" id="progress-bar-gif">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Credits Section -->
+    <div class="credits-container">
+        <!-- Music control button with initial state -->
+        <button class="credits-button" id="musicControl" data-playing="false">
+            <!-- Music control icon -->
+            <img src="img/pills.gif" alt="Music" class="credits-icon">
+            <!-- Music status label -->
+            <span class="credits-label">MUSIC OFF</span>
+        </button>
+        <!-- Background music audio element with relative path -->
+        <audio id="bgMusic" preload="auto">
+            <source src="audio/background.ogg" type="audio/ogg">
+        </audio>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation">
+            <button class="start-button" aria-label="Start Navigation">START</button>
+            <div class="task-list"></div>
+            <ul>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="https://linktr.ee/4hrsleep" class="nav-link">Contact</a></li>
+                <li><a href="#game">GAME</a></li>
+                <li><a href="https://goldsmithscollege-my.sharepoint.com/:v:/g/personal/kwang013_campus_goldsmiths_ac_uk/Ea54WHXxj4hBnn5Fre9c22QB7sjS34HSKjd4QVctIkRymw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ZhhJ5K" target="_blank" rel="noopener noreferrer">VIDEO</a></li>
+                <!-- New Credits Button -->
+                <li><a href="#footer" class="nav-link">CREDITS</a></li>
+            </ul>
+            <div class="navbar-right">
+                <div class="clock-container">
+                    <img src="img/rskull.gif" alt="Skull" class="navbar-icon" id="skullClock">
+                    <div id="clock" class="clock-display"></div>
+                </div>
+            </div>
+        </nav>        
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" role="navigation">
+        <ul class="sidebar-menu">
+            <li>
+                <a href="https://www.behance.net/gallery/215365597/my-game" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    EYES
+                </a>
+            </li>
+            <li>
+                <a href="https://www.behance.net/gallery/215296691/my-oc" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    KY
+                </a>
+            </li>
+            <li>
+                <a href="https://www.behance.net/gallery/215365537/my-music" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    MUSIC
+                </a>
+            </li>
+            <li>
+                <a href="https://www.behance.net/4hrsleep" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    TBC
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Welcome Section -->
+        <section id="welcome" class="page active">
+            <!-- Main Header -->
+            <div class="main-header">
+                <h1>Welcome to My Portfolio PAGE</h1>
+            </div>
+            
+            <!-- Windows Container -->
+            <div class="windows-container">
+                <!-- Contact Window -->
+                <div class="retro-window contact-window">
+                    <div class="window-header">
+                        <img src="./img/cat.gif" alt="Contact" class="window-icon">
+                        <div class="window-title">Contact.txt</div>
+                        <div class="window-controls">
+                            <button class="window-button minimize">_</button>
+                            <button class="window-button maximize">□</button>
+                            <button class="window-button close">×</button>
+                        </div>
+                    </div>
+                    <div class="window-content">
+                        <div class="contact-info">
+                            <h2>Contact</h2>
+                            <p>✉ MY Email ✉</p>
+                            <p>kwang013@gold.ac.uk</p>
+                            <!-- Social media links container -->
+                            <div class="social-links">
+                                <!-- Steam profile link -->
+                                <a href="https://steamcommunity.com/id/FourHourSleep" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <img src="img/steam.png" alt="Steam Profile" width="32" height="32">
+                                </a>
+                                <!-- Instagram profile link -->
+                                <a href="https://www.instagram.com/f0urhrsleep/" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <img src="img/instagram-icon.png" alt="Instagram Profile" width="32" height="32">
+                                </a>
+                                <!-- Twitter/X profile link -->
+                                <a href="https://x.com/4hSleep" target="_blank" rel="noopener noreferrer" class="social-link">
+                                    <img src="img/twitter-icon.png" alt="Twitter/X Profile" width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Window -->
+                <div class="retro-window">
+                    <div class="window-header">
+                        <img src="./img/cat.gif" alt="Gallery" class="window-icon">
+                        <div class="window-title">Gallery.gif</div>
+                        <div class="window-controls">
+                            <button class="window-button minimize">_</button>
+                            <button class="window-button maximize">□</button>
+                            <button class="window-button close">×</button>
+                        </div>
+                    </div>
+                    <div class="window-content">
+                        <div class="gallery-preview">
+                            <img src="./img/GIF.gif" alt="Gallery Preview">
+                            <a href="https://www.behance.net/4hrsleep" 
+                            class="goto-btn" 
+                            target="_blank" 
+                            rel="noopener noreferrer">
+                            MY GALLERY
+                        </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Window -->
+                <div class="retro-window project-window">
+                    <div class="window-header">
+                        <img src="./img/cat.gif" alt="Project" class="window-icon">
+                        <div class="window-title">Project.pdf</div>
+                        <div class="window-controls">
+                            <button class="window-button minimize">_</button>
+                            <button class="window-button maximize">□</button>
+                            <button class="window-button close">×</button>
+                        </div>
+                    </div>
+                    <div class="window-content">
+                        <div class="project-preview">
+                            <img src="./img/profile.jpg" alt="Project Preview">
+                            <a href="/project" class="goto-btn">MY PROJECT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Window -->
+                <div class="retro-window game-window">
+                    <div class="window-header">
+                        <img src="img/cat.gif" alt="Game" class="window-icon">
+                        <div class="window-title">Game.exe</div>
+                        <div class="window-controls">
+                            <button class="window-button minimize">_</button>
+                            <button class="window-button maximize">□</button>
+                            <button class="window-button close">×</button>
+                        </div>
+                    </div>
+                    <div class="window-content">
+                        <div class="game-preview">
+                            <img src="img/BACKG.jpg" alt="Game Preview">
+                            <a href="https://drive.google.com/file/d/11Mfj6IZksuH7gKeaypiczdTlPZswohWR/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="goto-btn">
+                                Download Game
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Window -->
+                <div class="retro-window image-window">
+                    <div class="window-header">
+                        <img src="./img/cat.gif" alt="Image" class="window-icon">
+                        <div class="window-title">Image.exe</div>
+                        <div class="window-controls">
+                            <button class="window-button minimize">_</button>
+                            <button class="window-button maximize">□</button>
+                            <button class="window-button close">×</button>
+                        </div>
+                    </div>
+                    <div class="window-content">
+                        <div class="navbar-image-container">
+                            <img src="img/project/fq.png" alt="Normal image" class="navbar-normal">
+                            <img src="img/project/fqb.jpg" alt="Hover image" class="navbar-hover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Pages -->
+        <!-- About Section -->
+        <section id="about" class="page">
+            <div class="content-window">
+                <h2 class="section-title">ABOUT</h2>
+                <div class="section-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/profile.jpg" alt="Profile Picture">
+                            <h3>About Me</h3>
+                            <p>Hello! I'm Keyi Wang, but everyone calls me Finn. I'm passionate about creating and expressing myself through various mediums, combining technology with creativity to bring unique ideas to life.</p>
+                            <p>I'm a student at Goldsmiths University of London, majoring in Digital Arts Computing. I'm also a bass guitarist and a digital artist.</p>
+                            <p>I'm a big fan of punk and emo music, and I'm a big fan of the 70s and 90s. I'm a big fan of the color BLUE&RED.</p>
+                            
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/skill.png" alt="Skills">
+                            <h3>My Skills</h3>
+                            <p>Digital Art, Play bass guitar, Game Development, Web Design...</p>
+                            <p>The aesthetic of my portfolio page, with its bold red and black checkered pattern and distinctive Windows-style interface, reflects my appreciation for creative digital design. My artistic side shows through in my gallery of digital artworks, while my technical skills come through in my programming projects. When I'm not coding or creating visual art, I'm probably jamming on my bass, as music is another vital outlet for my creativity.
+                                I believe in bringing together these different forms of expression - art, music, and code - to create unique and meaningful experiences. Feel free to reach out if you'd like to collaborate or just chat about any of these interests!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="page">
+            <div class="content-window">
+                <h2 class="section-title">GALLERY</h2>
+                <div class="section-content">
+                    <div class="gallery-grid">
+                        <!-- Existing Gallery items -->
+                        <div class="gallery-item">
+                            <img src="img/project/hammer.jpg" alt="Artwork 1">
+                            <h3>Electric Vibes</h3>
+                            <p>A vibrant digital illustration capturing the energy of modern life.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/project/bin.jpg" alt="Artwork 2">
+                            <h3>Urban Symphony</h3>
+                            <p>An exploration of urban landscapes through mixed media.</p>
+                        </div>
+                        <!-- New Gallery items -->
+                        <div class="gallery-item">
+                            <img src="img/project/madhouse.jpg" alt="Artwork 3">
+                            <h3>Chaos in Color</h3>
+                            <p>A colorful depiction of chaotic emotions and thoughts.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/project/sick.jpg" alt="Artwork 4">
+                            <h3>Melancholic Reflections</h3>
+                            <p>An introspective piece reflecting on solitude and melancholy.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/project/subway.jpg" alt="Artwork 5">
+                            <h3>Subway Dreams</h3>
+                            <p>A surreal journey through the underground world of subways.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/project/bathroom.jpg" alt="Artwork 6">
+                            <h3>Intimate Spaces</h3>
+                            <p>An intimate look at personal spaces and their stories.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/project/twopp.jpg" alt="Artwork 7">
+                            <h3>Duality</h3>
+                            <p>An exploration of duality and contrast in human nature.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/loading.gif" alt="Artwork 8">
+                            <h3>Glitch Art</h3>
+                            <p>A digital piece embracing the beauty of glitches and errors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Section -->
+        <section id="game" class="page">
+            <div class="content-window">
+                <h2 class="section-title">GAME</h2>
+                <div class="section-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/gallery/HEing.jpg" alt="Game Project 1">
+                            <h3>Retro Runner</h3>
+                            <p>A thrilling retro-style platformer game that takes you back to the 80s.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/BEing.jpg" alt="Game Project 2">
+                            <h3>Puzzle Quest</h3>
+                            <p>An indie puzzle adventure that challenges your mind and creativity.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/BACKG.jpg" alt="Game Project 3">
+                            <h3>Background Battle</h3>
+                            <p>Engage in epic battles set against stunning backdrops.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/baojianshi.jpg" alt="Game Project 4">
+                            <h3>Chamber of Secrets</h3>
+                            <p>Explore mysterious chambers filled with secrets and surprises.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/BE.jpg" alt="Game Project 5">
+                            <h3>Elemental Escape</h3>
+                            <p>Navigate through elemental challenges to find your way out.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/HE.jpg" alt="Game Project 6">
+                            <h3>Hero's Journey</h3>
+                            <p>Embark on a hero's journey through fantastical lands.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/fengmianYuDing.jpg" alt="Game Project 7">
+                            <h3>Cover Story</h3>
+                            <p>Uncover the story behind the mysterious cover art.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/Home.jpg" alt="Game Project 8">
+                            <h3>Homeward Bound</h3>
+                            <p>A heartwarming tale of returning home against all odds.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/Library.jpg" alt="Game Project 9">
+                            <h3>Library Legends</h3>
+                            <p>Discover the legends hidden within the library's walls.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/SCHOOLDoor.jpg" alt="Game Project 10">
+                            <h3>School's Out</h3>
+                            <p>Navigate the challenges of school life in this engaging game.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/Street.jpg" alt="Game Project 11">
+                            <h3>Street Smarts</h3>
+                            <p>Test your street smarts in this urban adventure.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/tiantai.jpg" alt="Game Project 12">
+                            <h3>Rooftop Rumble</h3>
+                            <p>Engage in intense battles on the city's rooftops.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/ClaasroomGRENN.jpg" alt="Game Project 13">
+                            <h3>Classroom Chaos</h3>
+                            <p>Survive the chaos of a classroom gone wild.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/ClassroomRED.jpg" alt="Game Project 14">
+                            <h3>Red Alert</h3>
+                            <p>Face the challenges of a classroom under red alert.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/two.jpg" alt="Game Project 15">
+                            <h3>Dual Dimensions</h3>
+                            <p>Explore two dimensions in this mind-bending adventure.</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/gallery/YoN.jpg" alt="Game Project 16">
+                            <h3>Yes or No</h3>
+                            <p>Make choices that will determine your fate in this interactive story.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer specific to the Game page -->
+            <footer class="game-footer">
+                <p>© 2024 Keyi Wang. All rights reserved.</p>
+            </footer>
+        </section>
+    </main>
+
+    <!-- Standalone Footer -->
+    <footer id="footer" class="site-footer">
+        <p>© 2024 Keyi Wang. All rights reserved.</p>
+    </footer>
+</body>
+</html>
