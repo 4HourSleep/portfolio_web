@@ -28,7 +28,7 @@ h2 {
 
 /* Custom cursor and trail effect */
 body {
-    cursor: default;
+    cursor: url('img/catcursor.gif') 16 16, auto;
 }
 
 /* ===== Base Body Styles ===== */
@@ -44,6 +44,7 @@ body {
     margin-left: 190px;
     padding-bottom: 140px;
     min-height: calc(100vh - 200px);
+    cursor: url('img/catcursor.gif') 16 16, pointer;
 }
 
 .site-footer {
@@ -1914,6 +1915,48 @@ img[src*="rskull.gif"]:not(.navbar-icon) {
     font-family: 'Press Start 2P', monospace;
     padding: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional: Different cursor for clickable elements */
+a, button, .window-controls {
+    cursor: url('img/cat.png'), pointer !important;
+}
+
+.default-cursor {
+    cursor: default;
+}
+
+/* Global cursor setting */
+body {
+    cursor: url('img/catcursor.gif') 16 16, auto;
+}
+
+/* Main content areas */
+.main-content {
+    cursor: url('img/catcursor.gif') 16 16, pointer;
+}
+
+/* Interactive elements */
+a, 
+button, 
+.window-controls,
+.window-header,
+.sidebar-menu a,
+.navbar a,
+.start-button,
+.credits-button,
+.goto-btn,
+.gallery-item,
+.social-link {
+    cursor: url('img/catcursor.gif') 16 16, pointer !important;
+}
+
+/* Ensure cursor consistency across all interactive elements */
+.retro-window,
+.window-content,
+.navbar-image-container,
+.credits-container {
+    cursor: url('img/catcursor.gif') 16 16, auto;
 }
 
 
